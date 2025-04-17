@@ -9,7 +9,24 @@ class ProductController
     public function index()
     {
         $conn = getConnect();
-        $products = Product::getAll($conn);
+
+        $categories = Product::getCategories($conn);
+
+        $sort = $_GET['sort'] ?? null;
+        $search = $_GET['search'] ?? null;
+        $category_id = $_GET['category_id'] ?? null;
+
+        if ($search && !empty(trim($_GET['search']))) {
+            $search = trim($_GET['search']);
+            $products = Product::search($conn, $search);
+        } elseif ($sort) {
+            $products = Product::getSorted($conn, $sort);
+        } elseif ($category_id) {
+            $products = Product::getByCategory($conn, $category_id);
+        } else {
+            $products = Product::getAll($conn);
+        }
+
         include __DIR__ . '/../views/product_list.php';
     }
 

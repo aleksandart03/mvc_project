@@ -61,4 +61,83 @@ class Product
         $stmt->bind_param("ssdi", $data['name'], $data['description'], $data['price'], $data['id']);
         $stmt->execute();
     }
+
+    public static function search($conn, $search)
+    {
+        $escaped = mysqli_real_escape_string($conn, $search);
+        $sql = "SELECT * FROM products WHERE name LIKE '%$escaped%' ORDER BY id DESC";
+        $result = mysqli_query($conn, $sql);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = (object)$row;
+        }
+
+        return $products;
+    }
+
+    public static function getSorted($conn, $sort)
+    {
+        $orderBy = "id DESC";
+
+        switch ($sort) {
+            case 'name_asc':
+                $orderBy = "name ASC";
+                break;
+            case 'name_desc':
+                $orderBy = "name DESC";
+                break;
+            case 'price_asc':
+                $orderBy = "price ASC";
+                break;
+            case 'price_desc':
+                $orderBy = "price DESC";
+                break;
+        }
+
+        $sql = "SELECT * FROM products ORDER BY $orderBy";
+        $result = mysqli_query($conn, $sql);
+
+        $products = [];
+        while ($row = mysqli_fetch_assoc($result)) {
+            $products[] = (object)$row;
+        }
+
+        return $products;
+    }
+
+    public static function getCategories($conn)
+    {
+        $sql = "SELECT * FROM categories";
+        $result = $conn->query($sql);
+
+        $categories = [];
+        while ($row = $result->fetch_assoc()) {
+            $categories[] = $row;
+        }
+
+        return $categories;
+    }
+
+    public static function getByCategory($conn, $category_id)
+    {
+        $sql = "SELECT * FROM products WHERE category_id = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $category_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $products = [];
+        while ($row = $result->fetch_assoc()) {
+            $product = new Product(
+                $row['id'],
+                $row['name'],
+                $row['description'],
+                $row['price']
+            );
+            $products[] = $product;
+        }
+
+        return $products;
+    }
 }

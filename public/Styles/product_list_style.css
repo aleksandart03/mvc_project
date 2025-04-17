@@ -92,3 +92,105 @@
 .add-product-btn:hover {
     background-color: #2d850b94;
 }
+
+
+label[for="sort"] i {
+    margin-right: 5px;
+    color: #555;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label[for="sort"] {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+select#sort {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+select#sort:hover {
+    border-color: #888;
+    background-color: #eaeaea;
+}
+
+
+.filteri {
+    display: flex;
+    gap: 20px; 
+    align-items: center; 
+    margin-bottom: 20px; 
+    justify-content: center;
+}
+
+.filteri form {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.filteri label {
+    font-size: 14px;
+    margin-right: 5px; 
+}
+
+#category, #sort {
+    padding: 5px;
+    font-size: 14px;
+    width: 200px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    padding: 5px 15px;
+    background-color: #14a30f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: #3899488a;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.search-form input {
+    padding: 5px;
+    font-size: 14px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 40px;
+    height: 38px;
+}
+
+.search-form button {
+    padding: 5px 15px;
+    background-color: #04531c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 40px;
+    height: 38px;
+}
+
+.search-form button:hover {
+    background-color: #19740e70;
+}
