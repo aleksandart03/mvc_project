@@ -48,4 +48,17 @@ class ProductController
         header("Location: /mvc_project/public/index.php");
         exit();
     }
+
+    public function edit($id)
+    {
+        $product = Product::find($id);
+        include __DIR__ . '/../views/edit_product.php';
+    }
+
+    public function update($data)
+    {
+        Product::update($data);
+        header('Location: /mvc_project/public/index.php');
+        exit;
+    }
 }

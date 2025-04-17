@@ -19,4 +19,10 @@ switch ($action) {
     case 'delete':
         $controller->delete();
         break;
+    case 'edit':
+        $controller->edit($_GET['id']);
+        break;
+    case 'update':
+        $controller->update($_POST);
+        break;
 }

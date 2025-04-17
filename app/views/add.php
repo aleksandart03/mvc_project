@@ -1,20 +1,30 @@
-<a href="/mvc_project/public/index.php">Nazad na listu proizvoda</a>
-<br><br>
+<head>
+    <title>Dodavanje proizovda</title>
+    <link rel="stylesheet" href="/mvc_project/public/styles/main.css">
+    <link rel="stylesheet" href="/mvc_project/public/styles/add_style.css">
+</head>
 
+<a href="/mvc_project/public/index.php" class="back-link">← Nazad na listu proizvoda</a>
 
-<h2>Dodaj novi proizvod</h2>
+<div class="form-container">
+    <h2 class="form-title">Dodaj novi proizvod</h2>
 
-<form action="/mvc_project/public/index.php?action=store" method="POST">
-    <label for="name">Naziv:</label><br>
-    <input type="text" name="name" required><br><br>
+    <form action="/mvc_project/public/index.php?action=store" method="POST" class="product-form">
+        <div class="form-group">
+            <label for="name">Naziv:</label>
+            <input type="text" name="name" required>
+        </div>
 
-    <label for="description">Opis:</label><br>
-    <textarea name="description" required></textarea><br><br>
+        <div class="form-group">
+            <label for="description">Opis:</label>
+            <textarea name="description" required></textarea>
+        </div>
 
-    <label for="price">Cena (€):</label><br>
-    <input type="number" name="price" step="0.01" required><br><br>
+        <div class="form-group">
+            <label for="price">Cena (€):</label>
+            <input type="number" name="price" step="0.01" required>
+        </div>
 
-    <input type="submit" value="Dodaj proizvod">
-
-
-</form>
+        <input type="submit" value="Dodaj proizvod" class="submit-btn">
+    </form>
+</div>

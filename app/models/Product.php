@@ -40,4 +40,25 @@ class Product
         $stmt->execute();
         $stmt->close();
     }
+
+    public static function find($id)
+    {
+        $conn = getConnect();
+        $stmt = $conn->prepare("SELECT * FROM products WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+
+        $product = new Product($row['id'], $row['name'], $row['description'], $row['price']);
+        return $product;
+    }
+
+    public static function update($data)
+    {
+        $conn = getConnect();
+        $stmt = $conn->prepare("UPDATE products SET name = ?, description = ?, price = ? WHERE id = ?");
+        $stmt->bind_param("ssdi", $data['name'], $data['description'], $data['price'], $data['id']);
+        $stmt->execute();
+    }
 }
