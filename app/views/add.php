@@ -4,12 +4,12 @@
     <link rel="stylesheet" href="/mvc_project/public/styles/add_style.css">
 </head>
 
-<a href="/mvc_project/public/index.php" class="back-link">← Nazad na listu proizvoda</a>
+<a href="/mvc_project/public/admin.php" class="back-link">← Nazad na listu proizvoda</a>
 
 <div class="form-container">
     <h2 class="form-title">Dodaj novi proizvod</h2>
 
-    <form action="/mvc_project/public/index.php?action=store" method="POST" class="product-form">
+    <form action="/mvc_project/public/admin.php?action=store" method="POST" class="product-form">
         <div class="form-group">
             <label for="name">Naziv:</label>
             <input type="text" name="name" required>
