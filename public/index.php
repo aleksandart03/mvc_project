@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once '../app/controllers/ProductController.php';
+require_once '../autoload.php';
 
 $action = $_GET['action'] ?? 'index';
 
