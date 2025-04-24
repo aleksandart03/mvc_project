@@ -1,16 +1,15 @@
 <?php
 
 spl_autoload_register(function ($class) {
-    $paths = [
-        'app/controllers/',
-        'app/models/',
-    ];
+    $path = __DIR__ . '/app/controllers/' . $class . '.php';
+    if (file_exists($path)) {
+        require_once $path;
+        return;
+    }
 
-    foreach ($paths as $path) {
-        $file = __DIR__ . '/' . $path . $class . '.php';
-        if (file_exists($file)) {
-            include $file;
-            return;
-        }
+    $path = __DIR__ . '/app/models/' . $class . '.php';
+    if (file_exists($path)) {
+        require_once $path;
+        return;
     }
 });

@@ -170,8 +170,17 @@ body {
     color: #28a745;
     margin-bottom: 15px;
 }
+.kolicina-view {
+    border-radius: 50px;
+    color: #222 ;
+    text-align: center;
+    width: 100%;
+    max-width: 145px;
+    margin: 10px;
+}
 
 .add-to-cart-btn {
+    margin-top: 10px;
     background-color: #28a745;
     color: white;
     padding: 10px 16px;
@@ -183,6 +192,25 @@ body {
 
 .add-to-cart-btn:hover {
     background-color: #218838;
+}
+.ikonica {
+    background-color: rgb(41, 168, 52);
+    border-radius: 50%;
+    padding: 15px;
+    margin: 10px auto;
+    font-size: 30px;
+    position: fixed;
+    text-decoration: none;
+    color: white;
+    transition: transform 0.3s ease;
+}
+.container .ikonica {
+    left: 20px;
+}
+
+.ikonica:hover {
+    background-color: #2188377a;
+    transform: scale(1.1);
 }
 
 .pagination {
@@ -223,9 +251,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-
-
 
 @media (max-width: 768px) {
     .combined-filters {

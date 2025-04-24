@@ -1,0 +1,147 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 2rem;
+    color: #333;
+}
+
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.cart-container {
+    display: grid;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cart-item {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    transition: transform 0.5s ease;
+}
+
+.cart-item:hover {
+    transform: scale(1.02);
+}
+
+.cart-item h3 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    color: #34495e;
+}
+
+.cart-item p {
+    margin: 0.5rem 0;
+}
+
+.quantity-form {
+    display: inline-block;
+    margin: 0 0.5rem;
+}
+
+.quantity-display {
+    font-weight: bold;
+    margin: 0 0.5rem;
+    color: #2d3436;
+}
+
+.increase-btn {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.increase-btn:hover {
+    background-color: #2980b9;
+}
+
+.decrease-btn {
+    background-color: #e67e22;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.decrease-btn:hover {
+    background-color: #d35400;
+}
+
+button,
+.remove-btn {
+    background-color: #e00b0b;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+button:hover,
+.remove-btn:hover {
+    background-color: #ca101075;
+}
+
+.clear-cart-btn {
+    display: block;
+    margin: 2rem auto;
+    background-color: #e74c3c;
+}
+
+.clear-cart-btn:hover {
+    background-color: #c03a2b71;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #2600ff;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.5s ease;
+}
+
+.back-btn:hover {
+    background-color: #0f0777;
+}
+
+.cena {
+    font-size: 1.3rem;
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #27ae60;
+}
+
+@media (max-width: 600px) {
+    .cart-container {
+        padding: 1rem;
+    }
+
+    .cart-item {
+        padding: 1rem;
+    }
+
+    button,
+    .remove-btn {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+}

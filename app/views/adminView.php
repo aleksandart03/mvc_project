@@ -63,8 +63,16 @@
                     <a href="/mvc_project/public/admin.php?action=delete&id=<?= $product->id ?>" class="delete-btn" onclick="return confirm('Da li ste sigurni da želite da obrišete ovaj proizvod?')">Obriši</a> <!-- Ispravljeno -->
                 </div>
             <?php endforeach; ?>
-
         </div>
+
+        <div class="pagination">
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="?<?= http_build_query(array_merge($_GET, ['page' => $i])) ?>" class="<?= ($i == $page) ? 'active' : '' ?>">
+                    <?= $i ?>
+                </a>
+            <?php endfor; ?>
+        </div>
+
     </div>
 </body>
 

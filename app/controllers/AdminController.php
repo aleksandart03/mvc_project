@@ -8,26 +8,30 @@ class AdminController
 {
     public function __construct()
     {
-        if (!isset($_SESSION['user_id'])) {
+        if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             header("Location: /mvc_project/public/login_register.php");
             exit();
         }
     }
-
     public function index()
     {
 
-        $category_id = $_GET['category_id'] ?? '';
-        $sort = $_GET['sort'] ?? '';
-        $search = $_GET['search'] ?? '';
+        $categoryModel = new CategoryModel();
+        $categories = $categoryModel->getAllCategories();
+
+        $sort = $_GET['sort'] ?? null;
+        $search = $_GET['search'] ?? null;
+        $category_id = $_GET['category_id'] ?? null;
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $limit = 12;
+        $offset = ($page - 1) * $limit;
 
         $productModel = new ProductModel();
-        $products = $productModel->getProducts($category_id, $sort, $search);
-        $categoriesModel = new CategoryModel();
-        $categories = $categoriesModel->getAllCategories();
+        $products = $productModel->getProducts($category_id, $sort, $search, $limit, $offset);
+        $totalProducts = $productModel->countProducts($category_id, $search);
+        $totalPages = ceil($totalProducts / $limit);
 
-
-        require_once '../app/views/adminView.php';
+        require_once  '../app/views/adminView.php';
     }
 
     public function create()
@@ -52,7 +56,6 @@ class AdminController
         }
     }
 
-
     public function delete($id)
     {
         $productModel = new ProductModel();
@@ -61,14 +64,12 @@ class AdminController
         exit();
     }
 
-
     public function edit($id)
     {
         $productModel = new ProductModel();
         $product = $productModel->getProductById($id);
         require_once '../app/views/edit_product.php';
     }
-
 
     public function update()
     {

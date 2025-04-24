@@ -5,6 +5,7 @@
     <title>Prodavnica</title>
     <link rel="stylesheet" href="/mvc_project/public/styles/main.css">
     <link rel="stylesheet" href="/mvc_project/public/styles/product_list_style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -22,6 +23,9 @@
     <?php endif; ?>
 
     <div class="container">
+
+        <a href="/mvc_project/public/cart.php" class="ikonica"><i class='bx bxs-cart'></i></a>
+
 
         <h2 class="page-title">Prodavnica mobilinh uredjaja,laptopova</h2>
 
@@ -77,6 +81,12 @@
                     <h3 class="product-name"><?= $product->name ?></h3>
                     <p class="product-description"><?= $product->description ?></p>
                     <p class="product-price">Cena: €<?= number_format($product->price, 2) ?></p>
+                    <form method="POST" action="/mvc_project/public/index.php?action=add_to_cart">
+                        <input type="hidden" name="product_id" value="<?= $product->id ?>">
+                        <label for="quantity_<?= $product->id ?>" class="kolicina">Količina:</label>
+                        <input type="number" id="quantity_<?= $product->id ?>" name="quantity" value="1" min="1" max="20" class="kolicina-view">
+                        <button type="submit" class="add-to-cart-btn">Dodaj u korpu</button>
+                    </form>
                 </div>
             <?php endforeach; ?>
         </div>
