@@ -32,3 +32,9 @@ define('DB_HOST', 'localhost');    // Server baze podataka
 define('DB_NAME', 'mvc_project');  // Ime baze podataka
 define('DB_USER', 'your_username'); // Vaše korisničko ime za bazu
 define('DB_PASS', 'your_password'); // Vaš password za bazu
+```
+### 3. Prijava za admina
+
+admin@gmail.com
+admin123
+
