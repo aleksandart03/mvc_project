@@ -8,7 +8,7 @@ Da biste pokrenuli projekat i povezali se sa bazom podataka, pratite sledeće ko
 
 ### 1. Kreiranje baze podataka
 
-1. Preuzmite SQL dump fajl sa [mvc_project.sql](database/mvc_project.sql).
+1. Preuzmite SQL dump fajl sa [database/mvc_project.sql](database/mvc_project.sql).
 2. Kreirajte novu bazu podataka na svom MySQL serveru:
    - Ako koristite **phpMyAdmin**:
      - Kreirajte bazu podataka pod imenom `mvc_project`.
