@@ -68,6 +68,7 @@ class ProductController
                 }
             }
         }
+        $_SESSION['added_to_cart'] = true;
 
         header("Location: /mvc_project/public/index.php");
         exit();
