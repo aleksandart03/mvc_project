@@ -116,8 +116,8 @@
     <script>
         document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                btn.classList.remove('bounce'); // ukloni ako postoji
-                void btn.offsetWidth; // restartuje animaciju
+                btn.classList.remove('bounce');
+                void btn.offsetWidth;
                 btn.classList.add('bounce');
             });
         });
